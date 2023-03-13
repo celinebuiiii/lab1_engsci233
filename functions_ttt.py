@@ -99,6 +99,7 @@ def check_draw(list_board):
 
 
 def play_game():
+    # might be an error in here somewhere
     board = initialise_board()
     current_turn = get_current_turn_number(board)
     if_win, winner = check_win(board)
