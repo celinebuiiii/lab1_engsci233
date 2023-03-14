@@ -5,13 +5,11 @@ def initialise_board():
 
         Returns
         -----
-        list_board = a list variable that contains '.' to
-                     represent the board
-
+        list_board : a list var to represent the board
         Notes
         -----
         List variable list_board has to contain 9 items of '.'
-        in order to create a 3x3 board.
+        in order to create a 3x3 tic tac toe board.
         No other pre- or post-conditions required.
     """
 
@@ -21,17 +19,15 @@ def initialise_board():
 
 def display_board(list_board):
     """
-            Description.
+        Print board to command window.
+        No output variables.
 
-            Arguments
-            -----
-
-            Returns
-            -----
-
-            Notes
-            -----
-
+        Arguments
+        -----
+        list_board : a list var to represent the board
+        Notes
+        -----
+        The printed board must be a 3x3 square.
     """
     print(list_board[0], list_board[1], list_board[2])
     print(list_board[3], list_board[4], list_board[5])
@@ -39,6 +35,23 @@ def display_board(list_board):
 
 
 def get_current_turn_number(list_board):
+    """
+        Go through list_board and count any X or O
+        to find the current turn number.
+
+        Arguments
+        -----
+        list_board : a list variable to represent the board
+        Returns
+        -----
+        count : an integer var to
+                indicate the current turn number
+
+        Notes
+        -----
+        (pre-con 1) list_board must be a 1D list of length 9.
+        (post-con 1) Count cannot be < 1 or > 10
+    """
     count = 1
     empty_pos = '.'
     for i in list_board:
@@ -48,20 +61,57 @@ def get_current_turn_number(list_board):
 
 
 def get_current_player(list_board):
-    player_1 = 0
-    player_2 = 0
+    """
+        Go through list_board and compare
+        numbers of X and 0 to find current player.
+
+        Arguments
+        -----
+        list_board : a list var to represent the board
+        Returns
+        -----
+        current_player : a string var for the current player
+
+        Notes
+        -----
+        (pre-con 1) list_board must be a 1D list of length 9.
+    """
+    player_x = 0
+    player_o = 0
     current_player = 'X'
     for i in list_board:
         if i == 'X':
-            player_1 += 1
+            player_x += 1
         elif i == 'O':
-            player_2 += 1
-    if player_1 == 0 or player_2 > player_1:
+            player_o += 1
+    if player_x == 0 or player_o > player_x:
         current_player = 'X'
     return current_player
 
 
 def play_turn(list_board, r, c):
+    """
+        Take inputs of row and column numbers from player,
+        check if player's move is valid,
+        then change the board accordingly to the move made.
+
+        Arguments
+        -----
+        list_board : a list var to represent the board
+        r : int var representing row number
+        c : int var representing column number
+
+        Returns
+        -----
+        list_board : a list var to represent the board
+        bool_val : True if player's move is valid
+                   False if player's move is invalid
+
+        Notes
+        -----
+        (pre-con 1) r must be within 1-3 inclusive
+        (pre-con 2) c must be within 1-3 inclusive
+    """
     current = get_current_player(list_board)
 
     if r == 3:
@@ -87,6 +137,19 @@ def play_turn(list_board, r, c):
 
 
 def check_win(list_board):
+    """
+        Check if a player wins after a move is made.
+
+        Arguments
+        -----
+        list_board : a list var to represent the board
+
+        Returns
+        -----
+        winner : a string var to represent the winner
+        bool_val : True if a player has won
+                   False otherwise
+    """
     bool_val = False
     winner = None
 
@@ -120,6 +183,18 @@ def check_win(list_board):
 
 
 def check_draw(list_board):
+    """
+        Check if the game concludes in a draw.
+
+        Arguments
+        -----
+        list_board : a list var to represent the board
+
+        Returns
+        -----
+        draw : True if all possible moves have been made but no winner
+               False if a winning move has been made
+    """
     draw = False
     outcome, winner = check_win(list_board)
     if outcome is False:
@@ -128,6 +203,10 @@ def check_draw(list_board):
 
 
 def play_game():
+    """
+        Play the game from start to finish.
+        No inputs or outputs required.
+    """
     # might be an error in here somewhere
     board = initialise_board()
     current_turn = get_current_turn_number(board)
