@@ -12,7 +12,6 @@ def initialise_board():
         in order to create a 3x3 tic tac toe board.
         No other pre- or post-conditions required.
     """
-
     list_board = ['.'] * 9
     return list_board
 
@@ -29,6 +28,7 @@ def display_board(list_board):
         -----
         The printed board must be a 3x3 square.
     """
+    # print each row individually
     print(list_board[0], list_board[1], list_board[2])
     print(list_board[3], list_board[4], list_board[5])
     print(list_board[6], list_board[7], list_board[8])
@@ -42,6 +42,7 @@ def get_current_turn_number(list_board):
         Arguments
         -----
         list_board : a list variable to represent the board
+
         Returns
         -----
         count : an integer var to
@@ -52,18 +53,20 @@ def get_current_turn_number(list_board):
         (pre-con 1) list_board must be a 1D list of length 9.
         (post-con 1) Count cannot be < 1 or > 10
     """
+    # count starts at 1 = first turn of player X
     count = 1
     empty_pos = '.'
     for i in list_board:
         if i is not empty_pos:
             count += 1
+    # final value return would be 10
     return count
 
 
 def get_current_player(list_board):
     """
         Go through list_board and compare
-        numbers of X and 0 to find current player.
+        numbers of X and O to find current player.
 
         Arguments
         -----
@@ -76,14 +79,21 @@ def get_current_player(list_board):
         -----
         (pre-con 1) list_board must be a 1D list of length 9.
     """
+    # initialise count variables
     player_x = 0
     player_o = 0
+
+    # current_player is default to player X
     current_player = 'X'
+
+    # loop through board, count X and O items
     for i in list_board:
         if i == 'X':
             player_x += 1
         elif i == 'O':
             player_o += 1
+
+    # compare numbers of X and Os to determine current player
     if player_x == 0 or player_o > player_x:
         current_player = 'X'
     return current_player
@@ -112,8 +122,10 @@ def play_turn(list_board, r, c):
         (pre-con 1) r must be within 1-3 inclusive
         (pre-con 2) c must be within 1-3 inclusive
     """
+    # get current player
     current = get_current_player(list_board)
 
+    #
     if r == 3:
         if c == 3:
             a = 3
@@ -207,11 +219,15 @@ def play_game():
         Play the game from start to finish.
         No inputs or outputs required.
     """
-    # might be an error in here somewhere
+    # initialise board
     board = initialise_board()
+    # get current turn for while loop
     current_turn = get_current_turn_number(board)
+    # see if win for while loop
     if_win, winner = check_win(board)
 
+    # when there are still moves to play
+    # and when no winning move has been made
     while current_turn < 10 and if_win is False:
         display_board(board)
         print("Current turn: ", + current_turn)
@@ -222,17 +238,18 @@ def play_game():
         input_c = int(input('Enter column number: '))
 
         board, valid_play = play_turn(board, input_r, input_c)
+        # if move made is not valid then turn number doesn't increase
         if valid_play is True:
             if_win, winner = check_win(board)
             current_turn = get_current_turn_number(board)
 
-    if current_turn == 10:
-        if_draw = check_draw(board)
-        if if_draw is True:
-            print("Draw!")
+    # when loop completes - i.e when no more possible moves + no winning
+    if_draw = check_draw(board)
+    if if_draw is True:
+        print("Draw!")
 
     print('Winner: ', winner)
-    print("Final board: ")
+    print("Final board:")
     display_board(board)
 
 
