@@ -125,7 +125,8 @@ def play_turn(list_board, r, c):
     # get current player
     current = get_current_player(list_board)
 
-    #
+    # algorithm for finding index position in list_board
+    # from user's input row and col number
     if r == 3:
         if c == 3:
             a = 3
@@ -139,6 +140,8 @@ def play_turn(list_board, r, c):
     else:
         i = r * c + (r - 1) - 1
 
+    # go to the calculated index position
+    # check if move has already been made
     if list_board[i] != '.':
         bool_val = False
         return list_board, bool_val
