@@ -1,9 +1,38 @@
 def initialise_board():
+    """
+        Initialise empty board at start of game as a 1D list
+        No input required.
+
+        Returns
+        -----
+        list_board = a list variable that contains '.' to
+                     represent the board
+
+        Notes
+        -----
+        List variable list_board has to contain 9 items of '.'
+        in order to create a 3x3 board.
+        No other pre- or post-conditions required.
+    """
+
     list_board = ['.'] * 9
     return list_board
 
 
 def display_board(list_board):
+    """
+            Description.
+
+            Arguments
+            -----
+
+            Returns
+            -----
+
+            Notes
+            -----
+
+    """
     print(list_board[0], list_board[1], list_board[2])
     print(list_board[3], list_board[4], list_board[5])
     print(list_board[6], list_board[7], list_board[8])
