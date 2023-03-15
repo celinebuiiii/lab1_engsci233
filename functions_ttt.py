@@ -96,6 +96,8 @@ def get_current_player(list_board):
     # compare numbers of X and Os to determine current player
     if player_x == 0 or player_o > player_x:
         current_player = 'X'
+    else:
+        current_player = 'O'
     return current_player
 
 
@@ -124,6 +126,15 @@ def play_turn(list_board, r, c):
     """
     # get current player
     current = get_current_player(list_board)
+
+    # check for validity of entered row and number
+    if r < 1 or r > 3:
+        bool_val = False
+        return list_board, bool_val
+
+    if c < 1 or c > 3:
+        bool_val = False
+        return list_board, bool_val
 
     # algorithm for finding index position in list_board
     # from user's input row and col number
@@ -239,6 +250,11 @@ def play_game():
 
         input_r = int(input('Enter row number: '))
         input_c = int(input('Enter column number: '))
+
+        if input_r < 1 or input_r > 3:
+            print("ERROR!!! Invalid row number.")
+        if input_c < 1 or input_c > 1:
+            print("ERROR!!! Invalid column number.")
 
         board, valid_play = play_turn(board, input_r, input_c)
         # if move made is not valid then turn number doesn't increase

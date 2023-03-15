@@ -1,0 +1,41 @@
+commit 385809f33ac059cd88ad67a1d23737e034f3cd0d
+Author: celinebuiiii <127638310+celinebuiiii@users.noreply.github.com>
+Date:   Wed Mar 15 11:16:41 2023 +1300
+
+    Test file and internal commenting
+
+commit a5f872a069895f99994afd0c7418052adf86a5fe
+Author: celinebuiiii <127638310+celinebuiiii@users.noreply.github.com>
+Date:   Wed Mar 15 08:00:36 2023 +1300
+
+    Test file added
+
+commit 920b520a647b4823e31848492fd70440e6bd4789
+Author: celinebuiiii <127638310+celinebuiiii@users.noreply.github.com>
+Date:   Tue Mar 14 16:40:06 2023 +1300
+
+    breaking code into chunks and commenting for readability
+
+commit c4e3d431db580bbc0c3ba729ca0242fd27d45b23
+Author: celinebuiiii <127638310+celinebuiiii@users.noreply.github.com>
+Date:   Tue Mar 14 15:11:27 2023 +1300
+
+    docstrings documentation added to all functions:
+
+commit f1109669c7c8fe7936083fb88c0eef35fbf54d71
+Author: celinebuiiii <127638310+celinebuiiii@users.noreply.github.com>
+Date:   Tue Mar 14 13:31:17 2023 +1300
+
+    adding docstrings for initialise_board function
+
+commit cf320eeaadea506f8873641de1354f383048f9f9
+Author: celinebuiiii <127638310+celinebuiiii@users.noreply.github.com>
+Date:   Tue Mar 14 12:48:18 2023 +1300
+
+    testing commit from staging area to local repo
+
+commit c9b8739f0e0494184d73d3b226fba17cf2a1246a
+Author: celinebuiiii <127638310+celinebuiiii@users.noreply.github.com>
+Date:   Tue Mar 14 11:09:33 2023 +1300
+
+    Add files via upload
